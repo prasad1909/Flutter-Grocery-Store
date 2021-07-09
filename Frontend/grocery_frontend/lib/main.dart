@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'fruits.dart';
+import 'homewidget.dart';
 
 void main() => runApp(MaterialApp(
   home: NinjaCard(),
@@ -111,95 +112,13 @@ class _NinjaCardState extends State<NinjaCard> {
                     ),
                 ],
               ),
-                SizedBox(height: 50,),
 
-              GestureDetector(child: Stack(
-                  children: [
-                  Container(
-                    height: 200,
-                    width: 325,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(30)
-                    ),
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(30),
-                        child: Image(image: AssetImage('assets/vegetables.jpg'),
-                            fit: BoxFit.fitHeight)),
-                  ),
-                  Container(
-                     height: 200,
-                      width: 325,
-                      child: Center( child: Text('Fruits & Vegetables', style: TextStyle(backgroundColor: Colors.black, fontSize: 30, color: Colors.white))))
-                ],),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Fruits()),
-                );
-              }),
-              SizedBox(height: 50,),
-              Stack(
-                children: [
-                  Container(
-                    height: 200,
-                    width: 325,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(30)
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(30),
-                      child: Image(image: AssetImage('assets/vegetables.jpg'),
-                        fit: BoxFit.fitHeight)),
-                  ),
-                  Container(
-                      height: 200,
-                      width: 325,
-                      child: Center( child: Text('Snacks & Munchies', style: TextStyle(backgroundColor: Colors.black, fontSize: 30, color: Colors.white))))
-                ],),
-              SizedBox(height: 50,),
-              Stack(
-                children: [
-                  Container(
-                    height: 200,
-                    width: 325,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(30)
-                    ),
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(30),
-                    child: Image(image: AssetImage('assets/vegetables.jpg'),
-                        fit: BoxFit.fitHeight)),
-              ),
-                  Container(
-                      height: 200,
-                      width: 325,
-                      child: Center( child: Text('Drink & Beverages', style: TextStyle(backgroundColor: Colors.black, fontSize: 30, color: Colors.white))))
-                ],),
-              SizedBox(height: 50,),
-              Stack(
-                children: [
-                  Container(
-                    height: 200,
-                    width: 325,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(30)
-                    ),
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(30),
-                        child: Image(image: AssetImage('assets/vegetables.jpg'),
-                            fit: BoxFit.fitHeight)),
-                  ),
-                  Container(
-                      height: 200,
-                      width: 325,
-                      child: Center( child: Text('Daily Staples', style: TextStyle(backgroundColor: Colors.black, fontSize: 30, color: Colors.white))))
-                ],)
+              HomeWidget('Fruits & Vegetables', 'assets/vegetables.jpg','fruits'),
+              HomeWidget('Snacks & Munchies', 'assets/vegetables.jpg',"snacks"),
+              HomeWidget('Drink & Beverages', 'assets/vegetables.jpg',"drinks"),
+              HomeWidget('Daily Staples', 'assets/vegetables.jpg',"staples"),
 
-                ],
+            ],
               ),
           ),
         )

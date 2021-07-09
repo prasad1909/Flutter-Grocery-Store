@@ -23,10 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e7a5b9e-a553-4f17-a823-1b22fa595c1e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Backend/Ecom/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Ecom/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/grocery_frontend/lib/homewidget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Flutter-Grocery-Store.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Flutter-Grocery-Store.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/grocery_frontend/lib/apicall.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/grocery_frontend/lib/apicall.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/grocery_frontend/lib/fruits.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/grocery_frontend/lib/fruits.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/grocery_frontend/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/grocery_frontend/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/grocery_frontend/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/grocery_frontend/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/grocery_frontend/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/grocery_frontend/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,11 +82,20 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="57" key="SettingsEditor" timestamp="1625749254097">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="0" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1625749254097" />
+    <state x="266" y="190" key="run.anything.popup" timestamp="1625837834945">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="266" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1625837834945" />
+    <state x="272" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1625838158373">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="272" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1625838158373" />
   </component>
 </project>

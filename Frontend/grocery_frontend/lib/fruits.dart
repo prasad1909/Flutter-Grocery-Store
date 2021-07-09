@@ -1,6 +1,21 @@
 import 'package:flutter/material.dart';
-class Fruits extends StatelessWidget {
+import 'package:grocery_frontend/homewidget.dart';
+import 'apicall.dart';
 
+
+class Fruits extends StatelessWidget {
+void getProducts () async {
+var Products = await ProductProvider(this.apiPath).fetchProducts();
+for(var i=0; i< Products.length; i++){
+  print(Products[i].name);
+}
+}
+final apiPath;
+
+Fruits(this.apiPath)
+{
+  getProducts();
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,79 +77,7 @@ class Fruits extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 50,),
 
-              GestureDetector(child: Stack(
-                children: [
-                  Container(
-                    height: 200,
-                    width: 325,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white)
-                    ),
-                    child: Image(image: AssetImage('assets/vegetables.jpg'),
-                        fit: BoxFit.fill),
-                  ),
-                  Container(
-                      height: 200,
-                      width: 325,
-                      child: Center( child: Text('Fresh Fruits', style: TextStyle(backgroundColor: Colors.black, fontSize: 30, color: Colors.white))))
-                ],),
-                  ),
-              SizedBox(height: 50,),
-              Stack(
-                children: [
-                  Container(
-                    height: 200,
-                    width: 325,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(30)
-                    ),
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(30),
-                        child: Image(image: AssetImage('assets/vegetables.jpg'),
-                            fit: BoxFit.fitHeight)),
-                  ),
-                  Container(
-                      height: 200,
-                      width: 325,
-                      child: Center( child: Text('Fresh Vegetables', style: TextStyle(backgroundColor: Colors.black, fontSize: 30, color: Colors.white))))
-                ],),
-              SizedBox(height: 50,),
-              Stack(
-                children: [
-                  Container(
-                    height: 200,
-                    width: 325,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white)
-                    ),
-                    child: Image(image: AssetImage('assets/vegetables.jpg'),
-                        fit: BoxFit.fill),
-                  ),
-                  Container(
-                      height: 200,
-                      width: 325,
-                      child: Center( child: Text('Exotic Fruits', style: TextStyle(backgroundColor: Colors.black, fontSize: 30, color: Colors.white))))
-                ],),
-              SizedBox(height: 50,),
-              Stack(
-                children: [
-                  Container(
-                    height: 200,
-                    width: 325,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white)
-                    ),
-                    child: Image(image: AssetImage('assets/vegetables.jpg'),
-                        fit: BoxFit.fill),
-                  ),
-                  Container(
-                      height: 200,
-                      width: 325,
-                      child: Center( child: Text('Exotic Vegetables', style: TextStyle(backgroundColor: Colors.black, fontSize: 30, color: Colors.white))))
-                ],)
 
             ],
           ),
