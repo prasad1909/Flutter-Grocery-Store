@@ -22,8 +22,16 @@ class Fruits extends StatelessWidget {
     map.forEach((key, value) {
       widgets.add(Text(key));
       for (var i = 0; i < value.length; i++) {
+        var name = value[i].name;
+        if (value[i].name.length > 12) {
+          if (value[i].name.split(' ').length == 3) {
+            name = value[i].name.replaceFirst(' ', '\n');
+          } else {
+            name = value[i].name.replaceAll(' ', '\n');
+          }
+        }
         widgets.add(ProductCard(
-          value[i].name,
+          name,
           value[i].price,
           value[i].image,
           Colors.white,
