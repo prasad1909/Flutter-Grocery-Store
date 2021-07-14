@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProductCard extends StatelessWidget {
   final title;
@@ -7,6 +8,17 @@ class ProductCard extends StatelessWidget {
   final color;
 
   ProductCard(this.title, this.price, this.image, this.color);
+  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  var cart;
+
+  Future<void> addToCart(nameItem, price, quantity) async {
+    SharedPreferences preferences = await _prefs;
+    await preferences.setStringList(nameItem, [price, quantity]);
+    cart = await preferences.getKeys();
+    for (var item in cart) {
+      print(item);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,16 +39,13 @@ class ProductCard extends StatelessWidget {
               SizedBox(
                 width: 20,
               ),
-              ClipRRect(
-                child: Image.network(
-                  this.image,
-                  width: MediaQuery.of(context).size.width / 3,
-                  height: MediaQuery.of(context).size.height / 5,
-                ),
-                borderRadius: BorderRadius.circular(50),
+              Image.network(
+                this.image,
+                width: MediaQuery.of(context).size.width / 3,
+                height: MediaQuery.of(context).size.height / 5,
               ),
               SizedBox(
-                width: 50,
+                width: 30,
               ),
               Column(
                 children: [
@@ -46,19 +55,36 @@ class ProductCard extends StatelessWidget {
                   Text(
                     this.title,
                     style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold),
+                      fontSize: 27,
+                      color: Colors.black,
+                    ),
                   ),
                   SizedBox(
-                    height: 50,
+                    height: 20,
                   ),
-                  Text(
-                    "₹ " + this.price.toString(),
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black,
-                        fontStyle: FontStyle.italic),
+                  Row(
+                    children: [
+                      Text(
+                        "₹" + this.price.toString(),
+                        style: TextStyle(
+                            fontSize: 26,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      ElevatedButton(
+                        onPressed: () async {
+                          await addToCart(
+                              this.title, this.price.toString(), "1");
+                        },
+                        child: Icon(
+                          Icons.add_shopping_cart_rounded,
+                          size: 20,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
