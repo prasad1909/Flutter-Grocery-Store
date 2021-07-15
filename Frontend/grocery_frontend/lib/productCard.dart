@@ -15,6 +15,7 @@ class ProductCard extends StatelessWidget {
     SharedPreferences preferences = await _prefs;
     await preferences.setStringList(nameItem, [price, quantity]);
     cart = await preferences.getKeys();
+    print(cart.length);
     for (var item in cart) {
       print(item);
     }

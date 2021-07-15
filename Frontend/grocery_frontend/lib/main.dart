@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'fruits.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'homewidget.dart';
+import 'cart.dart';
 
 void main() => runApp(MaterialApp(
   home: NinjaCard(),
@@ -15,8 +16,6 @@ class NinjaCard extends StatefulWidget {
 }
 
 class _NinjaCardState extends State<NinjaCard> {
-
-  int ninjalevel = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -63,14 +62,18 @@ class _NinjaCardState extends State<NinjaCard> {
           actions: <Widget>[
             Padding(
                 padding: EdgeInsets.only(right: 20.0),
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Icon(
-                    Icons.shopping_cart_rounded,
-                    size: 26.0,
-                  ),
-                )
-            ),
+                  child: GestureDetector(
+                    child:  Icon(
+                      Icons.shopping_cart_rounded,
+                      size: 26.0,
+                    ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Cart()),
+                        );
+                      }                  )
+                ),
             Padding(
                 padding: EdgeInsets.only(right: 20.0),
                 child: GestureDetector(

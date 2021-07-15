@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_frontend/homewidget.dart';
 import 'apicall.dart';
 import 'productCard.dart';
 
@@ -23,7 +22,7 @@ class Fruits extends StatelessWidget {
       widgets.add(Text(key));
       for (var i = 0; i < value.length; i++) {
         var name = value[i].name;
-        if (value[i].name.length > 12) {
+        if (value[i].name.length > 11) {
           if (value[i].name.split(' ').length == 3) {
             name = value[i].name.replaceFirst(' ', '\n');
           } else {
