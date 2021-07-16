@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'cartcard.dart';
 
 class Cart extends StatelessWidget {
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
@@ -10,13 +11,15 @@ class Cart extends StatelessWidget {
     cart = await preferences.getKeys();
     var list = <Widget> [];
     for (var item in cart) {
-      list.add(Text(item));
+      print(item);
+      var properties = await preferences.getStringList(item);
+      list.add(CartCard(item,properties?[2],properties?[0]));
     }
     return Column(children: list,);
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.green[700],
+    return Scaffold(backgroundColor: Color(0xFF2ED566),
       drawer: Drawer(
           child : ListView(
             children: <Widget>[
@@ -53,7 +56,7 @@ class Cart extends StatelessWidget {
       appBar: AppBar(
         title: Text('G', style: TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
-        backgroundColor: Colors.green[900],
+        backgroundColor: Color(0xFF24A352),
         elevation: 0.0,
         actions: <Widget>[
 
@@ -68,7 +71,7 @@ class Cart extends StatelessWidget {
           ),
         ],
       ),
-      body: FutureBuilder(future: getCart(),
+      body: SingleChildScrollView(child: FutureBuilder(future: getCart(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.hasData) {
               return snapshot.data;
@@ -82,7 +85,30 @@ class Cart extends StatelessWidget {
               );
             }
           }
+      ),),
+      floatingActionButton: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+
+        ),
+        child: ElevatedButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.redAccent),
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>
+              (
+                  RoundedRectangleBorder
+                  (
+                      borderRadius: BorderRadius.circular(20),
+                      side: BorderSide(color: Colors.red)
+                  )
+              )
+          ),
+          onPressed: () {},
+          child: Icon(Icons.check_sharp, size:25 ,),
+
+        ),
       ),
+
     );
 
   }

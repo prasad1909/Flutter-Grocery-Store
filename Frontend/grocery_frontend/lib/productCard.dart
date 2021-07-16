@@ -11,9 +11,9 @@ class ProductCard extends StatelessWidget {
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   var cart;
 
-  Future<void> addToCart(nameItem, price, quantity) async {
+  Future<void> addToCart(nameItem, price, quantity, image) async {
     SharedPreferences preferences = await _prefs;
-    await preferences.setStringList(nameItem, [price, quantity]);
+    await preferences.setStringList(nameItem, [price, quantity,image]);
     cart = await preferences.getKeys();
     print(cart.length);
     for (var item in cart) {
@@ -78,7 +78,7 @@ class ProductCard extends StatelessWidget {
                       ElevatedButton(
                         onPressed: () async {
                           await addToCart(
-                              this.title, this.price.toString(), "1");
+                              this.title, this.price.toString(), "1",this.image);
                         },
                         child: Icon(
                           Icons.add_shopping_cart_rounded,
