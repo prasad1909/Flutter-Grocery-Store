@@ -3,17 +3,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'cartcard.dart';
 
 class Cart extends StatelessWidget {
-  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-  var cart;
 
   Future getCart() async {
+    Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
     SharedPreferences preferences = await _prefs;
-    cart = await preferences.getKeys();
+    var cart = await preferences.getKeys();
     var list = <Widget> [];
     for (var item in cart) {
       print(item);
       var properties = await preferences.getStringList(item);
-      list.add(CartCard(item,properties?[2],properties?[0]));
+      list.add(CartCard(item,properties?[2], properties?[1] ,properties?[0]));
     }
     return Column(children: list,);
   }
